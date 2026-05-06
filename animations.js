@@ -161,7 +161,26 @@
       });
     });
   }
+  // ADDED: Mobile menu toggle
+  function bindMobileMenu() {
+    var toggle = document.querySelector('.mobile-menu-toggle');
+    var nav = document.querySelector('.site-nav');
 
+    if (!toggle) return;
+
+    toggle.addEventListener('click', function () {
+      toggle.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+
+    // Close menu when link is clicked
+    Array.prototype.slice.call(nav.querySelectorAll('a')).forEach(function (link) {
+      link.addEventListener('click', function () {
+        toggle.classList.remove('active');
+        nav.classList.remove('active');
+      });
+    });
+  }
   // ADDED: Initialize animation system
   function init() {
     var progress = createScrollProgress();
@@ -173,6 +192,7 @@
     bindAnchorScrolling();
     bindLocalPageTransitions();
     bindFooterSubscribe();
+    bindMobileMenu();
   }
 
   if (document.readyState === "loading") {

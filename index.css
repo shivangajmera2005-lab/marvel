@@ -1488,6 +1488,117 @@ body::before {
   .business-grid {
     grid-template-columns: 1fr;
   }
+  /* ADDED: Mobile hamburger menu */
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    /* ADDED: Mobile hamburger menu styling */
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .mobile-menu-toggle span {
+    width: 24px;
+    height: 3px;
+    background: var(--text);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+  }
+
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(255, 250, 243, 0.98);
+    flex-direction: column;
+    padding: 20px;
+    border-bottom: 1px solid var(--line);
+    z-index: 999;
+  }
+
+  .site-nav.active {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .site-nav a:last-child {
+    border-bottom: none;
+  }
+  }
+  .mobile-menu-toggle span {
+    width: 24px;
+    height: 3px;
+    background: var(--text);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+  }
+
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(255, 250, 243, 0.98);
+    flex-direction: column;
+    padding: 20px;
+    border-bottom: 1px solid var(--line);
+    z-index: 999;
+  }
+
+  .site-nav.active {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .site-nav a:last-child {
+    border-bottom: none;
+  }
   /* ADDED: About page mobile fixes */
   .about-profile-layout {
     grid-template-columns: 1fr;
@@ -1497,6 +1608,9 @@ body::before {
     grid-template-columns: 1fr;
   }
 }
+.mobile-menu-toggle {
+     display: none;  /* Hide on desktop */
+   }
 .bordered-card {
   padding: 28px;
 }
