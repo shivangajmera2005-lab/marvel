@@ -1607,9 +1607,7 @@ body::before {
   .about-profile-copy {
     grid-template-columns: 1fr;
   }
-  .mobile-menu-toggle {
-     display: none;  /* Hide on desktop */
-  }
+  
 }
 
 .bordered-card {
