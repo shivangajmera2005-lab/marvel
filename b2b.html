@@ -11,7 +11,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
-  <link rel="icon" type="images/jpeg" href="picture/marvel_logo.jpeg">
+  <link rel="icon" type="image/jpeg" href="picture/marvel_logo.jpeg">
   <link rel="stylesheet" href="index.css">
   <!-- ADDED: Premium animation stylesheet -->
   <link rel="stylesheet" href="animation.css">
@@ -23,15 +23,15 @@
   <div class="brand-block">
     <img src="picture/marvel_logo.jpeg" alt="Firm logo" class="brand-logo">
     <div>
-      <h1>Marvel's 4 U</h1>
+      <h1>Marvel Syntex</h1>
       <p class="eyebrow">Suitings</p>
     </div>
   </div>
-  <button class="mobile-menu-toggle" aria-label="Toggle menu">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
   <nav class="site-nav">
     <a href="index.html"><b>Home</b></a>
     <a href="about.html"><b>About</b></a>
@@ -158,10 +158,12 @@
     <div class="footer-column footer-connect">
       <h3>Stay Connected</h3>
       <p>Subscribe for exclusive insights into new collections and tailoring advice.</p>
-      <form class="footer-subscribe">
-        <input type="email" placeholder="Your email" aria-label="Your email">
-        <button type="submit" aria-label="Subscribe">&rsaquo;</button>
+      <form class="footer-subscribe" action="https://formspree.io/marvelsyntex2001@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Subscriber – Marvel's 4 U Suitings">
+        <input type="email" name="email" placeholder="Your email" aria-label="Your email" required>
+        <button type="submit" aria-label="Subscribe">›</button>
       </form>
+      <p class="subscribe-success" style="display:none;color:#6f7550;font-size:0.82rem;margin-top:8px;">✓ Thank you! You're subscribed.</p>
     </div>
   </footer>
 

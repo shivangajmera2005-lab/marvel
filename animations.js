@@ -152,12 +152,48 @@
     });
   }
 
-  // ADDED: Keep footer subscribe form from reloading static pages
+  // ADDED: Footer subscribe form — sends to Formspree via AJAX, no page redirect
   function bindFooterSubscribe() {
-    Array.prototype.slice.call(document.querySelectorAll(".footer-subscribe")).forEach(function (form) {
-      form.addEventListener("submit", function (event) {
+    Array.prototype.slice.call(document.querySelectorAll('.footer-subscribe')).forEach(function (form) {
+      form.addEventListener('submit', function (event) {
         event.preventDefault();
-        form.classList.add("is-submitted");
+
+        var emailInput = form.querySelector('input[type="email"]');
+        var submitBtn  = form.querySelector('button[type="submit"]');
+        var successMsg = form.nextElementSibling; // the .subscribe-success <p>
+
+        if (!emailInput || !emailInput.value) return;
+
+        // Visual loading state
+        submitBtn.disabled  = true;
+        submitBtn.textContent = '…';
+
+        var formData = new FormData(form);
+
+        fetch(form.action, {
+          method:  'POST',
+          body:    formData,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(function (response) {
+          if (response.ok) {
+            // Success: hide form, show thank-you message
+            form.style.display = 'none';
+            if (successMsg && successMsg.classList.contains('subscribe-success')) {
+              successMsg.style.display = 'block';
+            }
+          } else {
+            // Server error
+            submitBtn.disabled   = false;
+            submitBtn.textContent = '›';
+            alert('Something went wrong. Please try again.');
+          }
+        })
+        .catch(function () {
+          submitBtn.disabled   = false;
+          submitBtn.textContent = '›';
+          alert('Network error. Please check your connection and try again.');
+        });
       });
     });
   }
@@ -166,18 +202,18 @@
     var toggle = document.querySelector('.mobile-menu-toggle');
     var nav = document.querySelector('.site-nav');
 
-    if (!toggle) return;
+    if (!toggle || !nav) return;
 
     toggle.addEventListener('click', function () {
-      toggle.classList.toggle('active');
-      nav.classList.toggle('active');
+      toggle.classList.toggle('is-open');
+      nav.classList.toggle('is-open');
     });
 
-    // Close menu when link is clicked
+    // Close menu when a nav link is clicked
     Array.prototype.slice.call(nav.querySelectorAll('a')).forEach(function (link) {
       link.addEventListener('click', function () {
-        toggle.classList.remove('active');
-        nav.classList.remove('active');
+        toggle.classList.remove('is-open');
+        nav.classList.remove('is-open');
       });
     });
   }
